@@ -16,7 +16,7 @@ node {
                         sh "git config user.name duminda79"
                         //sh "git switch master"
                         sh "cat deployment.yaml"
-                        sh "sed -i -e "s/\\(csi-argo:\\).*/\\1${DOCKER_IMAGE_REPO_TAG}-v_${BRANCH}_${BUILD_NUMBER}/" Deployment.yml"
+                        sh "sed -i -e "s/\\(csi-argo:\\).*/\\1${DOCKER_IMAGE_REPO_TAG}-v_${BRANCH}_${BUILD_NUMBER}/" kube-manifests/Deployment.yml"
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
